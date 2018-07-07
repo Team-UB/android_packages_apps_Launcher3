@@ -294,6 +294,8 @@ public class Launcher extends BaseDraggingActivity implements LauncherExterns,
 
     // Icon pack
     private AlertDialog mIconPackDialog;
+    private EditText mEditText;
+    private ImageView mPackageIcon;
     private IconsHandler mIconsHandler;
 
     // QuickSpace
@@ -2673,6 +2675,13 @@ public class Launcher extends BaseDraggingActivity implements LauncherExterns,
             @Override
             public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
                 performListPopupClick(info, editText, packageName, iconPacks, position);
+                Intent intent = new Intent(Launcher.this, ChooseIconActivity.class);
+                ChooseIconActivity.setItemInfo(info);
+                intent.putExtra("app_package", packageName);
+                intent.putExtra("app_label", mEditText.getText().toString());
+                intent.putExtra("icon_pack_package", iconPacks.first.get(position));
+                Launcher.this.startActivity(intent);
+                mIconPackDialog.dismiss();
             }
         });
 
