@@ -47,6 +47,8 @@ import com.android.launcher3.widget.WidgetsFullSheet;
 import java.util.ArrayList;
 import java.util.List;
 
+import android.content.ComponentName;
+import android.content.pm.ResolveInfo;
 
 /**
  * Popup shown on long pressing an empty space in launcher
