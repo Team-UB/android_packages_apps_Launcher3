@@ -428,15 +428,6 @@ public class AllAppsRecyclerView extends BaseRecyclerView implements LogContaine
         return false;
     }
 
-    @Override
-    public void onScrollStateChanged(int state) {
-        super.onScrollStateChanged(state);
-
-        if (state == SCROLL_STATE_IDLE) {
-            AccessibilityManagerCompat.sendScrollFinishedEventToTest(getContext());
-        }
-    }
-
     public void onDeviceProfileChanged(int appsPerRow) {
         mNumAppsPerRow = appsPerRow;
         updatePoolSize();
